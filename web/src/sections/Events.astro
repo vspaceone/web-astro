@@ -1,0 +1,18 @@
+---
+import Heading from "@/components/Heading.astro";
+import { getEvents } from "@/lib/events-api";
+
+const events = await getEvents();
+---
+
+<Heading>Events</Heading>
+<div class="flex flex-row">
+  {
+    events.map((e) => (
+      <div class="w-48">
+        <h2>{e.start.toLocaleDateString()}</h2>
+        <h3>{e.title}</h3>
+      </div>
+    ))
+  }
+</div>

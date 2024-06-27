@@ -1,0 +1,27 @@
+---
+import Section from "@/components/Section.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+import { getCollection } from "astro:content";
+
+const faqs = await getCollection("faq");
+
+const content = await Promise.all(faqs.map(async (e) => e.render()));
+---
+
+<RootLayout title="Häufig gestellte Fragen">
+  <main>
+    <Section>
+      {
+        faqs.map((faq, index) => {
+          const { Content } = content[index]!;
+          return (
+            <div>
+              <h3>{faq.data.title}</h3>
+              <Content />
+            </div>
+          );
+        })
+      }
+    </Section>
+  </main>
+</RootLayout>

@@ -1,12 +1,14 @@
 ---
 import LandingHeader from "@/sections/LandingHeader.astro";
-import Layout from "../layouts/RootLayout.astro";
+import RootLayout from "../layouts/RootLayout.astro";
 import Section from "@/components/Section.astro";
 import Introduction from "@/sections/Introduction.astro";
 import SpaceState from "@/sections/SpaceState.astro";
+import Participate from "@/sections/Participate.astro";
+import Events from "@/sections/Events.astro";
 ---
 
-<Layout
+<RootLayout
   title="vspace.one - Makerspace, Hackerspace, Chaostreff und offene Werkstatt für Villingen-Schwenningen und Umgebung."
 >
   <main>
@@ -16,6 +18,12 @@ import SpaceState from "@/sections/SpaceState.astro";
     <Section>
       <Introduction />
     </Section>
+    <Section>
+      <Participate />
+    </Section>
+    <Section>
+      <Events />
+    </Section>
     <SpaceState />
   </main>
-</Layout>
+</RootLayout>
