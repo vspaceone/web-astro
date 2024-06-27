@@ -1,0 +1,21 @@
+---
+import LandingHeader from "@/sections/LandingHeader.astro";
+import Layout from "../layouts/RootLayout.astro";
+import Section from "@/components/Section.astro";
+import Introduction from "@/sections/Introduction.astro";
+import SpaceState from "@/sections/SpaceState.astro";
+---
+
+<Layout
+  title="vspace.one - Makerspace, Hackerspace, Chaostreff und offene Werkstatt für Villingen-Schwenningen und Umgebung."
+>
+  <main>
+    <Section>
+      <LandingHeader />
+    </Section>
+    <Section>
+      <Introduction />
+    </Section>
+    <SpaceState />
+  </main>
+</Layout>

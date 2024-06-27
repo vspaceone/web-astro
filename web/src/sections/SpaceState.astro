@@ -1,0 +1,17 @@
+---
+import { cn } from "@/lib/utils";
+import { getSpaceData } from "@/lib/space-api";
+
+const spaceData = await getSpaceData();
+---
+
+<div
+  class={cn(
+    "w-full h-40 flex justify-center items-center",
+    spaceData.state.open ? "bg-green-500" : "bg-red-400"
+  )}
+>
+  <p class="text-neutral">
+    {spaceData.state.open ? "Offen" : "Geschlossen"}
+  </p>
+</div>
