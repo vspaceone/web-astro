@@ -74,7 +74,6 @@ Unter ```/web/src/components``` findest du unsere Komponenten die quasi die Baus
 Eine Normale Site ist so aufgebaut:
 
 ````
-
 ---
 import Heading from "@/components/Heading.astro";
 import Section from "@/components/Section.astro";
