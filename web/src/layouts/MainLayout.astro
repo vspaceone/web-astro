@@ -1,0 +1,25 @@
+---
+const anim = {
+  old: {
+    name: "pageLeave",
+    duration: "0s",
+    easing: "ease-out",
+    fillMode: "backwards",
+  },
+  new: {
+    name: "pageEnter",
+    duration: "0.7s",
+    easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+    fillMode: "forwards",
+  },
+};
+
+const slideAnimation = {
+  forwards: anim,
+  backwards: anim,
+};
+---
+
+<main transition:animate={slideAnimation} class="pt-[200px] min-h-screen">
+  <slot />
+</main>

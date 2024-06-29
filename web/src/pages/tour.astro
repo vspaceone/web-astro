@@ -1,0 +1,14 @@
+---
+import Section from "@/components/Section.astro";
+import VirtualTour from "@/components/VirtualTour.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+---
+
+<RootLayout title="Tour">
+  <MainLayout>
+    <Section padding={false} maxWidth={false}>
+      <VirtualTour />
+    </Section>
+  </MainLayout>
+</RootLayout>

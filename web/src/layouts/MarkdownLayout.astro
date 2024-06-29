@@ -1,0 +1,16 @@
+---
+import "@/styles/markdown.css";
+import Section from "@/components/Section.astro";
+import MainLayout from "./MainLayout.astro";
+import RootLayout from "./RootLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<RootLayout title={frontmatter.title}>
+  <MainLayout>
+    <Section>
+      <slot />
+    </Section>
+  </MainLayout>
+</RootLayout>

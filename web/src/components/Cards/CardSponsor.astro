@@ -1,0 +1,19 @@
+---
+import type { z } from "astro:content";
+import { Sponsor } from "@/content/config";
+import Card from "../Card.astro";
+
+type Props = {
+  sponsor: z.output<typeof Sponsor>;
+};
+
+const { sponsor } = Astro.props;
+---
+
+<Card>
+  <div class="max-w-[256px]">
+    <img class="w-full h-full object-contain" src={sponsor.logo} />
+  </div>
+  <h3>{sponsor.name}</h3>
+  <slot />
+</Card>

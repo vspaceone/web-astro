@@ -1,11 +1,12 @@
 ---
+import Card from "@/components/Card.astro";
 import Heading from "@/components/Heading.astro";
 ---
 
 <div id="Mitmachen">
   <Heading>Mitmachen</Heading>
-  <div class="flex gap-4">
-    <div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-main">
+    <Card>
       <h3>Vorbeischauen</h3>
       <p>
         Du möchtest uns und unsere Räumlichkeiten gerne persönlich kennenlernen?
@@ -13,19 +14,17 @@ import Heading from "@/components/Heading.astro";
         Villingen vorbei. Dienstags findet bei uns jede Woche der Chaostreff
         statt.
       </p>
-    </div>
-    <div>
+    </Card>
+    <Card>
       <h3>Mitglied werden</h3>
       <p>
         Bei uns kann Jeder und Jede mitmachen. Interessierte Schüler, Studenten
         und Erwachsene, die sich für kreativen Umgang mit Technik begeistern
         sind willkommen. Wenn euch gefällt was wir tun und ihr uns unterstützen
-        wollt findet ihr unser Beitrittsformular <a href="/mitgliedwerden"
-          >hier</a
-        >.
+        wollt findet ihr unser Beitrittsformular <a href="/join">hier</a>.
       </p>
-    </div>
-    <div>
+    </Card>
+    <Card>
       <h3>Telegram</h3>
       <p>
         Für die regelmäßige Kommunikation verwenden wir <a
@@ -37,15 +36,15 @@ import Heading from "@/components/Heading.astro";
         interessierst und wissen willst, was bei uns los ist, trete ihr bei oder
         schreibe uns eine Email an info[at]vspace.one.
       </p>
-    </div>
-    <div>
+    </Card>
+    <Card>
       <h3>Spenden</h3>
       <p>
         Dir gefällt was wir machen, hast aber keine Möglichkeit oder Lust
-        Mitglied zu werden? Gerne nehmen wir wie <a href="/spenden"
+        Mitglied zu werden? Gerne nehmen wir wie <a href="/donate"
           >hier beschrieben</a
         > deine Spende als Überweisung an.
       </p>
-    </div>
+    </Card>
   </div>
 </div>

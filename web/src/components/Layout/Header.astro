@@ -1,17 +1,26 @@
 ---
 import { button } from "../Button.astro";
-import Logo from "components/Logo/Logo.astro";
 ---
 
-<header class="fixed top-0 w-full h-16 z-50">
+<header id="header" class="fixed top-0 w-full h-[100px] z-50 bg-neutral-accent">
   <div
     class="flex flex-row justify-between h-full w-full max-w-section m-auto p-main"
   >
-    <div class="w-16 h-8 flex">
-      <Logo />
+    <div class="flex justify-center items-center">
+      <a class="no-underline" href="/">
+        <h2 class="text-3xl font-extrabold">vspace.one</h2>
+      </a>
     </div>
-    <a class={button({ variant: "primary", size: "default" })} href="/faq"
-      >FAQ</a
-    >
+    <div class="flex flex-row gap-2 items-center">
+      <a class={button({ variant: "secondary", size: "lg" })} href="/#location"
+        >Standort</a
+      >
+      <a class={button({ variant: "secondary", size: "lg" })} href="/faq">FAQ</a
+      >
+      <a
+        class={button({ variant: "primary", size: "lg" })}
+        href="/support/donate">Unterstütze uns!</a
+      >
+    </div>
   </div>
 </header>

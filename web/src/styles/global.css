@@ -6,7 +6,7 @@
 :root {
   --color-main: 0 0% 0%;
   --color-main: 0 0% 10%;
-  --color-primary: 280 80% 50%;
+  --color-primary: 150 50% 40%;
   --color-neutral: 0 0% 100%;
   --color-neutral-accent: 0 0% 93%;
   --color-highlight: 264 100% 50%;
@@ -79,10 +79,20 @@ h4 {
   @apply text-lg;
 }
 
+a {
+  @apply underline;
+}
 
+a:hover {
+  @apply decoration-main text-main;
+}
 
 [astro-icon] {
   fill: currentColor;
+}
+
+td {
+  @apply px-3 py-1 border;
 }
 
 article {
@@ -99,6 +109,25 @@ article {
 
 p,
 li {
-  @apply max-w-[600px] whitespace-pre-line text-base text-secondary;
+  @apply max-w-[600px]  text-base text-secondary;
   line-height: 1.5;
+}
+
+@keyframes pageEnter {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pageLeave {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

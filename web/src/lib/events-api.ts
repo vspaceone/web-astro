@@ -2,10 +2,10 @@ import ICal from "ical";
 
 const CALENDAR_ICAL_URL =
     "https://hub.vspace.one/remote.php/dav/public-calendars/f6MfGLnsGScRqd4Y?export";
-const CALENDAR_URL = "https://hub.vspace.one/apps/calendar/p/f6MfGLnsGScRqd4Y";
+//const CALENDAR_URL = "https://hub.vspace.one/apps/calendar/p/f6MfGLnsGScRqd4Y";
 
 // Only look at this much next occurences, to prevent infinite loop
-const RECURRING_EVENT_LOOK_FORWARD = 5;
+//const RECURRING_EVENT_LOOK_FORWARD = 5;
 
 const DESIGNATOR_LINK = "Link";
 const DESIGNATOR_DOWNLOAD = "Download";
@@ -93,10 +93,12 @@ export async function getEvents() {
 
             const isRecurring = !!e.rrule;
 
+            //  console.log(e.description);
+
             if (e.description) {
                 const lines = e.description.split("\n");
 
-                for (let line in lines) {
+                for (let line of lines) {
                     const designator = line.substring(0, line.search(":"));
 
                     switch (designator) {

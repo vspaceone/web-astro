@@ -1,5 +1,8 @@
 ---
+import CardFaq from "@/components/Cards/CardFaq.astro";
+import Heading from "@/components/Heading.astro";
 import Section from "@/components/Section.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
 import RootLayout from "@/layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
 
@@ -9,19 +12,23 @@ const content = await Promise.all(faqs.map(async (e) => e.render()));
 ---
 
 <RootLayout title="Häufig gestellte Fragen">
-  <main>
+  <MainLayout>
     <Section>
-      {
-        faqs.map((faq, index) => {
-          const { Content } = content[index]!;
-          return (
-            <div>
-              <h3>{faq.data.title}</h3>
-              <Content />
-            </div>
-          );
-        })
-      }
+      <Heading>Häufig gestellte Fragen</Heading>
     </Section>
-  </main>
+    <Section>
+      <div class="flex flex-col gap-main">
+        {
+          faqs.map((faq, index) => {
+            const { Content } = content[index]!;
+            return (
+              <CardFaq title={faq.data.title}>
+                <Content />
+              </CardFaq>
+            );
+          })
+        }
+      </div>
+    </Section>
+  </MainLayout>
 </RootLayout>

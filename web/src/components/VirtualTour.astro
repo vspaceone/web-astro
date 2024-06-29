@@ -1,0 +1,77 @@
+---
+import "@photo-sphere-viewer/core/index.css";
+---
+
+<div class="h-[800px] overflow-hidden">
+  <div class="w-full h-full" id="virtual-tour"></div>
+</div>
+
+<script>
+  import { Viewer } from "@photo-sphere-viewer/core";
+  import { VirtualTourPlugin } from "@photo-sphere-viewer/virtual-tour-plugin";
+  // import { MarkersPlugin } from "@photo-sphere-viewer/markers-plugin";
+
+  const container: HTMLElement = document.querySelector("#virtual-tour")!;
+
+  var viewer = new Viewer({
+    container,
+    navbar: false,
+    panorama: "/pic/panorama/maschinenraum_quarter.jpg",
+    defaultYaw: 0.0,
+    touchmoveTwoFingers: true,
+    mousewheelCtrlKey: true,
+    loadingImg: "pic/logo_vspaceone.svg",
+    plugins: [
+      //   [MarkersPlugin, {}],
+      [
+        VirtualTourPlugin,
+        {
+          positionMode: "manual",
+          renderMode: "3d",
+        },
+      ],
+    ],
+  });
+
+  const virtualTour: VirtualTourPlugin = viewer.getPlugin(VirtualTourPlugin);
+  //  const markers = viewer.getPlugin(MarkersPlugin);
+
+  virtualTour.setNodes(
+    [
+      {
+        id: "node-1",
+        panorama: "/pic/panorama/maschinenraum_big.jpg",
+        name: "Maschinenraum",
+        links: [
+          {
+            nodeId: "node-2",
+            yaw: 0.7,
+            pitch: -0.0,
+          },
+        ],
+      },
+      {
+        id: "node-2",
+        panorama: "/pic/panorama/labor_big.jpg",
+        name: "Labor",
+        links: [
+          { nodeId: "node-1", yaw: 5.8, pitch: 0.0 },
+          { nodeId: "node-3", yaw: 1.0, pitch: 0.0 },
+        ],
+      },
+      {
+        id: "node-3",
+        panorama: "/pic/panorama/bruecke_big.jpg",
+        name: "Brücke",
+        links: [
+          {
+            nodeId: "node-2",
+            yaw: 5.3,
+            pitch: 0.0,
+          },
+        ],
+      },
+    ],
+    "1",
+  );
+</script>

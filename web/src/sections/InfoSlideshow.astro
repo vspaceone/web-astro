@@ -1,0 +1,44 @@
+---
+import { infoSlides } from "@/content/info-slides";
+---
+
+<div>
+  <div class="keen-slider" id="info-slideshow">
+    {
+      infoSlides.map((e) => (
+        <div class="keen-slider__slide ">
+          <div class="flex flex-col lg:flex-row w-full">
+            <div class="h-[500px] lg:h-[600px] xl:h-[700px] lg:w-full">
+              <img
+                class="lg:rounded-l-card max-lg:rounded-t-card object-cover h-full w-full"
+                src={e.imageSrc}
+              />
+            </div>
+            <div class="p-card bg-neutral-accent lg:rounded-r-card max-lg:rounded-b-card min-h-[200px] lg:w-[600px]">
+              <h4 class="text-2xl font-semibold mb-2">{e.title}</h4>
+              <p>{e.text}</p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import KeenSlider, { type KeenSliderOptions } from "keen-slider";
+
+  const options: KeenSliderOptions = {
+    loop: true,
+
+    slides: {
+      spacing: 12,
+    },
+  };
+
+  document.addEventListener("astro:after-swap", () => {
+    new KeenSlider("#info-slideshow", options, []);
+  });
+
+  new KeenSlider("#info-slideshow", options, []);
+</script>

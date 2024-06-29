@@ -1,0 +1,30 @@
+---
+import Card from "@/components/Card.astro";
+import Heading from "@/components/Heading.astro";
+import { getSpaceData } from "@/lib/space-api";
+
+const data = await getSpaceData();
+---
+
+<Heading>Wo findest du uns?</Heading>
+<Card padding={false} class="flex flex-col 2xl:flex-row">
+  <div class="p-card">
+    <p>Du findest uns in der Doppelstadt Villingen-Schwenningen.</p>
+    <p class="text-2xl font-bold text-main">
+      {data.location.address}
+    </p>
+    <p>
+      Finde uns über What3Words:
+      <a href="https://w3w.co/rotes.hörer.dorfplatz">///rotes.hörer.dorfplatz</a
+      >
+    </p>
+  </div>
+  <div>
+    <img
+      class="2xl:rounded-r-card max-2xl:mt-8 max-2xl:rounded-b-card w-full object-cover"
+      loading="lazy"
+      alt="Eine Kartenansicht unseres Standorts."
+      src={`https://api.mapbox.com/styles/v1/enricobuehler/clxyishk7001701pieyuehje0/static/pin-l+089f59(${data.location.lon},${data.location.lat})/${data.location.lon},${data.location.lat},15.5,0/900x600?access_token=${import.meta.env.PUBLIC_MAPBOX_TOKEN}`}
+    />
+  </div>
+</Card>

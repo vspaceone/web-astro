@@ -1,0 +1,33 @@
+---
+import Heading from "@/components/Heading.astro";
+import Section from "@/components/Section.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+---
+
+<RootLayout title="Werde Mitglied!">
+  <MainLayout>
+    <Section>
+      <Heading> Werde Mitglied! </Heading>
+    </Section>
+    <Section>
+      <p>
+        Lade dir unter Downloads die Beitrittserklärung herunter, bring sie mit
+        in den Space und drücke sie einem der Vorstände in die Hände. Dafür
+        eignet sich beispielsweise das regelmäßig stattfindende Treffen am
+        Dienstagabend. <br />
+
+        Alternativ schicke sie an folgende Adresse:<br />
+
+        vspace.one e.V <br />
+        Am Krebsgraben 15 <br />
+        78048 Villingen <br />
+
+        Oder an folgende E-Mail Adresse: <br />
+
+        <a href="mailto:vorstand@vspace.one">vorstand [at] vspace.one</a>
+        <br />
+      </p>
+    </Section>
+  </MainLayout>
+</RootLayout>

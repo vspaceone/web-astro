@@ -25,31 +25,86 @@ type NavigationGroup = {
 
 const tree: Array<NavigationGroup> = [
   {
-    title: "Overview",
+    title: "Übersicht",
     items: [
       {
         path: "/",
         type: NavigationItemType.Link,
-        label: "Landing",
+        label: "Startseite",
+      },
+    
+      {
+        path: "/faq",
+        type: NavigationItemType.Link,
+        label: "FAQ",
+      },
+    ],
+  },
+  {title: "Unterstützung",
+  items: [
+  {
+        path: "/support/donate",
+        type: NavigationItemType.Link,
+        label: "Spenden",
       },
       {
-        path: "https://github.com/tempblade/creator",
+        path: "/support/sponsor",
         type: NavigationItemType.Link,
-        label: "GitHub",
+        label: "Sponsoren",
       },
       {
-        path: "https://tempblade.com",
+        path: "/support/join",
         type: NavigationItemType.Link,
-        label: "tempblade",
+        label: "Werde Mitglied!",
+      },
+  ]
+  },
+  {
+    title: "Nützliches",
+    items: [
+      {
+        path: "/downloads",
+        label: "Downloads",
+        type: NavigationItemType.Link,
+      },
+      {
+        path: "https://wiki.vspace.one",
+        label: "Wiki",
+        type: NavigationItemType.Link,
       },
     ],
   },
   {
-    title: "Legal",
+    title: "Rechtliches",
     items: [
       {
         path: "/legal/imprint",
-        label: "Imprint",
+        label: "Impressum",
+        type: NavigationItemType.Link,
+      },
+      {
+        path: "/legal/privacy",
+        label: "Datenschutzerklärung",
+        type: NavigationItemType.Link,
+      },
+    ],
+  },
+  {
+    title: "Soziales",
+    items: [
+      {
+        path: "https://github.com/vspaceone",
+        label: "GitHub",
+        type: NavigationItemType.Link,
+      },
+      {
+        path: "https://t.me/joinchat/DmNdswpnKgox_zzqENYXiA",
+        label: "Telegram",
+        type: NavigationItemType.Link,
+      },
+      {
+        path: "https://matrix.to/#/#vspaceone-general:matrix.org",
+        label: "Matrix",
         type: NavigationItemType.Link,
       },
     ],

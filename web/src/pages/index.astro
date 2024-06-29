@@ -6,13 +6,16 @@ import Introduction from "@/sections/Introduction.astro";
 import SpaceState from "@/sections/SpaceState.astro";
 import Participate from "@/sections/Participate.astro";
 import Events from "@/sections/Events.astro";
+import Location from "@/sections/Location.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import InfoSlideshow from "@/sections/InfoSlideshow.astro";
 ---
 
 <RootLayout
   title="vspace.one - Makerspace, Hackerspace, Chaostreff und offene Werkstatt für Villingen-Schwenningen und Umgebung."
 >
-  <main>
-    <Section>
+  <MainLayout>
+    <Section padding={false} maxWidth={false}>
       <LandingHeader />
     </Section>
     <Section>
@@ -21,9 +24,17 @@ import Events from "@/sections/Events.astro";
     <Section>
       <Participate />
     </Section>
+    <Section maxWidth={false}>
+      <InfoSlideshow />
+    </Section>
     <Section>
       <Events />
     </Section>
-    <SpaceState />
-  </main>
+    <Section>
+      <SpaceState />
+    </Section>
+    <Section id="location">
+      <Location />
+    </Section>
+  </MainLayout>
 </RootLayout>

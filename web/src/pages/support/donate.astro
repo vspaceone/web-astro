@@ -1,0 +1,60 @@
+---
+import Heading from "@/components/Heading.astro";
+import Section from "@/components/Section.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+---
+
+<RootLayout title="Spenden">
+  <MainLayout>
+    <Section>
+      <Heading main>Spenden</Heading>
+    </Section>
+    <Section>
+      <div>
+        <div>
+          <p>
+            Wir sind froh über jede Spende, die bei uns ankommt. Als
+            gemeinnütziger Verein können wir selbstverständlich auf Wunsch
+            Spendenbescheinigungen ausstellen. Melde Dich dazu nach erfolgter
+            Überweisung per E-Mail an <a href="mailto:vorstand@vspace.one"
+              >vorstand@vspace.one</a
+            > und nenne uns Deine Kontaktdaten sowie die IBAN mit Betrag damit wir
+            die Spende zuordnen können.
+            <br />
+            Dazu könnt Ihr uns einfach den gewählten Betrag mit dem Betreff "Spende"
+            überweisen. Zweckgebundene Spenden nimmt der Vorstand nach erfolgter
+            Absprache an, sofern der Zweck mit der Satzung kompatibel ist.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3 class="mb-2 mt-8">QR-Code mit Kontodaten</h3>
+        <img src="/pic/donation-qr-code.png" />
+      </div>
+      <div>
+        <h3 class="mb-2 mt-8">Kontodaten zum Selbsteingeben</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>Inhaber</td>
+              <td>vspace.one e. V.</td>
+            </tr>
+            <tr>
+              <td>Bank</td>
+              <td>Volksbank eG - Die Gestalterbank</td>
+            </tr>
+            <tr>
+              <td>IBAN</td>
+              <td>DE76 6649 0000 0032 7297 03</td>
+            </tr>
+            <tr>
+              <td>BIC</td>
+              <td>GENODE61OG1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </Section>
+  </MainLayout>
+</RootLayout>
