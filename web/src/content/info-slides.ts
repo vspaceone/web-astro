@@ -1,4 +1,4 @@
-type InfoSlide = {
+export type InfoSlide = {
     title: string;
     text: string;
     imageSrc: string;

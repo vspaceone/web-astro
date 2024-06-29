@@ -1,54 +1,55 @@
-# Astro Starter Kit: Basics
+# vspace.one - Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+Dies ist das Repository mit dem Quellcode der vspace.one Webseite.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Tech-Stack
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Das Projekt nutzt als Basis die ["Astro"]("https://astro.build") Framework.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Als Laufzeit empfehlen wir ["Bun"]("https://bun.sh"), es sollte allerdings auch möglich sein Node.js zu verwenden.
 
-## 🚀 Project Structure
+### Wieso nicht React, Vue oder XYZ...?
 
-Inside of your Astro project, you'll see the following folders and files:
+Ziel ist es die Seite vielen Menschen zugänglich zu machen.
+Bisher nutzt die Seite ausschließlich Astro Komponenten, welche vom Prinzip her eine Abstraktion über HTML sind, und sehr nah am Web-Standard im Vergleich zu vielen anderen Frameworks.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Allerdings ist es in Astro auch problemlos möglich mit bspw. React zu arbeiten. Dies funktioniert über ["Islands/Inseln"]("https://docs.astro.build/de/concepts/islands/").
+Hierbei handelt es sich um Inseln die in dem Projekt eingebetteten werden (Sinnbildlich, nicht zu verwechseln mit iframes). In diesen Islands können React, Vue.js sowie viele weitere libraries verwendet werden.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Ziel ist es soweit wie möglich mit Astro auszukommen, da wir hierdurch zu großen Teilen auf Client-Seitiges JavaScript verzichten können, was die Bundle Size klein hält und die Ladezeiten schnell.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Grundsätzlich bleibt es euch aber offen eure Lieblings-Library zu verwenden, solange es nicht auf der Startseite ist.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Entwickeln des frontends
 
-## 🧞 Commands
+Die Befehle müssen im Unterordner /web ausgeführt werden.
 
-All commands are run from the root of the project, from a terminal:
+### Installieren der Abhängigkeiten
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Bun:
+```bun install```
+Node.js/NPM:
+```npm install```
 
-## 👀 Want to learn more?
+### Starten des Entwicklungsservers
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Bun:
+```bun dev```
+Node.js/NPM:
+```npm start```
+
+### Kompilieren
+
+Bun:
+```bun run build```
+Node.js/NPM:
+```npm run build```
+
+### Kompilieren
+
+Hinweis: Hierfür muss erst die Seite kompiliert werden.
+
+Bun:
+```bun preview```
+Node.js/NPM:
+```npm preview```
