@@ -5,6 +5,7 @@ Dies ist das Repository mit dem Quellcode der vspace.one Webseite.
 ## Strukturierung
 
 ```/web``` - Derzeit Großteil des Codes - "Frontend"
+```/api``` - Ein Content Management System, "PayloadCMS" - Derzeit nicht im Einsatz
 
 ## Tech-Stack
 
