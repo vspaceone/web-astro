@@ -2,11 +2,15 @@
 
 Dies ist das Repository mit dem Quellcode der vspace.one Webseite.
 
+## Strukturierung
+
+```/web``` - Derzeit Großteil des Codes - "Frontend"
+
 ## Tech-Stack
 
 Das Projekt nutzt als Basis die [Astro]("https://astro.build") Framework.
 
-Als Laufzeit empfehlen wir [Bun]("https://bun.sh"), es sollte allerdings auch möglich sein Node.js zu verwenden.
+Als Laufzeit empfehlen wir [Bun]("https://bun.sh"), es bestehen derzeit allerdings keine Laufzeit Abhängigkeiten, weshalb die Entwicklung auch mit Node.js möglich sein sollte.
 
 ### Wieso nicht React, Vue oder XYZ...?
 
@@ -26,7 +30,7 @@ Ziel ist es soweit wie möglich mit Astro auszukommen, da wir hierdurch zu groß
 
 Grundsätzlich bleibt es euch aber offen eure Lieblings-Library zu verwenden, solange es nicht auf der Startseite ist.
 
-## Entwickeln des frontends
+## Entwickeln des Frontends
 
 Die Befehle müssen im Unterordner /web ausgeführt werden.
 
@@ -62,3 +66,29 @@ Node.js/NPM:
 
 
 ## Komponenten
+
+Unter ```/web/src/components``` findest du unsere Komponenten die quasi die Bausteine der Website bilden.
+
+### Beispiel Seitenaufbau
+
+Eine Normale Site ist so aufgebaut:
+
+````
+
+---
+import Heading from "@/components/Heading.astro";
+import Section from "@/components/Section.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+---
+
+<RootLayout title="Seitentitel">
+  <MainLayout>
+    <Section>
+      <Heading main>Haupt-Überschrift</Heading>
+    </Section>
+    <Section>
+        <!-- Ab hier kannst du normales HTML schreiben. -->
+    </Section>
+  </MainLayout>
+</RootLayout>
