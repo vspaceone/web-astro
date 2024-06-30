@@ -1,0 +1,19 @@
+---
+import { card } from "../Card.astro";
+
+type Props = {
+  title: string;
+  text: string;
+  to: string;
+};
+
+const { text, title, to } = Astro.props;
+---
+
+<a href={to} class={card({ interactable: true, padding: true })}>
+  <div class="w-16 h-16 text-primary mb-4">
+    <slot name="icon" />
+  </div>
+  <h3 class="text-2xl">{title}</h3>
+  <p>{text}</p>
+</a>

@@ -1,0 +1,41 @@
+---
+import CardSupport from "@/components/Cards/CardSupport.astro";
+import Heading from "@/components/Heading.astro";
+import Section from "@/components/Section.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
+import { Euro, Award, UsersRound } from "lucide-astro";
+---
+
+<RootLayout title="Unterstütze uns">
+  <MainLayout>
+    <Section>
+      <Heading main>So kannst du uns unterstützen</Heading>
+    </Section>
+    <Section>
+      <div class="grid grid-cols-3 gap-card">
+        <CardSupport
+          to="/support/join"
+          title="Mitglied werden"
+          text="Trete dem Verein bei"
+        >
+          <UsersRound class="w-full h-full" slot="icon" />
+        </CardSupport>
+        <CardSupport
+          to="/support/donate"
+          title="Spenden"
+          text="Unterstütze uns durch eine Spende"
+        >
+          <Euro class="w-full h-full" slot="icon" />
+        </CardSupport>
+        <CardSupport
+          to="/support/sponsor"
+          title="Sponsor werden"
+          text="Unterstütze uns durch ein Sponsoring"
+        >
+          <Award class="w-full h-full" slot="icon" />
+        </CardSupport>
+      </div>
+    </Section>
+  </MainLayout>
+</RootLayout>

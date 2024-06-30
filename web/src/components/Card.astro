@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 import { type VariantProps, cva } from "class-variance-authority";
 
-const card = cva(
+export const card = cva(
   "card rounded-card transition-colors bg-neutral-accent ring-2 ring-main/10",
   {
     variants: {
@@ -16,7 +16,7 @@ const card = cva(
         false: "p-0",
       },
     },
-  }
+  },
 );
 
 export interface Props

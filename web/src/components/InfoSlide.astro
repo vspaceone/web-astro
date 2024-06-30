@@ -1,21 +1,24 @@
 ---
 import type { InfoSlide } from "@/content/info-slides";
+import { Image } from "astro:assets";
 
 type Props = {
   infoSlide: InfoSlide;
 };
 
 const {
-  infoSlide: { imageSrc, text, title },
+  infoSlide: { image, text, title, imageAlt },
 } = Astro.props;
 ---
 
 <div class="keen-slider__slide">
   <div class="flex flex-col lg:flex-row w-full">
     <div class="h-[500px] lg:h-[600px] xl:h-[700px] lg:w-full">
-      <img
-        class="lg:rounded-l-card max-lg:rounded-t-card object-cover h-full w-full"
-        src={imageSrc}
+      <Image
+        densities={[1.5, 2]}
+        class="w-full h-full object-cover"
+        src={image}
+        alt={imageAlt}
       />
     </div>
     <div

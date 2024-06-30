@@ -6,10 +6,85 @@
   <div
     class="w-full h-full absolute flex flex-col justify-center items-center z-40"
   >
-    <h1>vspace.one</h1>
-    <p>
-      Ein Makerspace und Hackerspace.<br />
-      <a href="/tour">Hier gehts zur virtuellen Space-Tour!</a>
-    </p>
+    <div
+      id="landing-heading-container"
+      style="opacity: 0;"
+      class="flex flex-col justify-center items-center gap-2 backdrop-blur-2xl p-card rounded-card ring ring-primary/20"
+    >
+      <!--h1>vspace.one</h1-->
+      <h2 class="text-4xl">Ein Makerspace und Hackerspace</h2>
+      <p>
+        <a class="text-xl" href="/tour">Hier gehts zur virtuellen Space-Tour!</a
+        >
+      </p>
+    </div>
   </div>
+  <div class="h-full w-full overflow-hidden">
+    <little-planet
+      class="anim object-cover"
+      src="/pic/panorama/maschinenraum_quarter.jpg"
+      width="1600"
+      height="1200"
+      mode="pano"></little-planet>
+  </div>
+  <script>
+    import { animate } from "motion";
+    import { ease } from "@unom/style";
+
+    const animateEntry = () => {
+      let scene: any = document.querySelector("little-planet.anim")!;
+      const landingHeadingContainer = document.querySelector(
+        "#landing-heading-container",
+      )!;
+
+      console.log(scene.width);
+
+      scene.addEventListener("load", () => {
+        animate(
+          scene,
+          { scale: [0.9, 1], opacity: [0, 1] },
+          {
+            ...ease.quint!(1.5).out,
+          },
+        );
+
+        animate(
+          landingHeadingContainer,
+          { scale: [0.4, 1], opacity: [0, 1] },
+          {
+            ...ease.quint!(1.4, 0.2).out,
+          },
+        );
+
+        animate(
+          (progress) => {
+            scene.camera = {
+              lon: -180 + ((progress * 270) % 360),
+              lat: progress * 10,
+              fov: 20 + 50 * progress,
+            };
+          },
+          {
+            ...ease.quint!(4).inOut,
+          },
+        );
+
+        /** spring({
+            stiffness: 10,
+            damping: 40,
+            mass: 2,
+            restSpeed: 0.01,
+            restDistance: 0.001,
+          }) */
+      });
+    };
+
+    animateEntry();
+
+    document.addEventListener("astro:after-swap", () => {
+      animateEntry();
+    });
+  </script>
+  <script is:inline type="module" src="https://unpkg.com/little-planet@0.5"
+  ></script>
 </div>

@@ -7,7 +7,7 @@ import "@photo-sphere-viewer/core/index.css";
 </div>
 
 <script>
-  import { Viewer, utils } from "@photo-sphere-viewer/core";
+  const { Viewer, utils } = await import("@photo-sphere-viewer/core");
 
   const container: HTMLElement = document.querySelector("#photo-sphere")!;
 

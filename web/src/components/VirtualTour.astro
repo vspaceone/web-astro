@@ -2,14 +2,16 @@
 import "@photo-sphere-viewer/core/index.css";
 ---
 
-<div class="h-[800px] overflow-hidden">
+<div class="h-[95vh] overflow-hidden relative z-0">
   <div class="w-full h-full" id="virtual-tour"></div>
 </div>
 
 <script>
-  import { Viewer } from "@photo-sphere-viewer/core";
-  import { VirtualTourPlugin } from "@photo-sphere-viewer/virtual-tour-plugin";
-  // import { MarkersPlugin } from "@photo-sphere-viewer/markers-plugin";
+  import type { VirtualTourPlugin as VirtualTourPluginType } from "@photo-sphere-viewer/virtual-tour-plugin";
+  const { Viewer } = await import("@photo-sphere-viewer/core");
+  const { VirtualTourPlugin } = await import(
+    "@photo-sphere-viewer/virtual-tour-plugin"
+  );
 
   const container: HTMLElement = document.querySelector("#virtual-tour")!;
 
@@ -33,8 +35,8 @@ import "@photo-sphere-viewer/core/index.css";
     ],
   });
 
-  const virtualTour: VirtualTourPlugin = viewer.getPlugin(VirtualTourPlugin);
-  //  const markers = viewer.getPlugin(MarkersPlugin);
+  const virtualTour: VirtualTourPluginType =
+    viewer.getPlugin(VirtualTourPlugin);
 
   virtualTour.setNodes(
     [

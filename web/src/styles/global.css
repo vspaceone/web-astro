@@ -39,6 +39,7 @@
 html {
   @apply bg-neutral text-main;
   font-family: system-ui, sans-serif;
+  scroll-behavior: smooth;
 }
 code {
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
