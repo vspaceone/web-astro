@@ -9,10 +9,11 @@ import "pannellum/build/pannellum.css";
     <div
       id="landing-heading-container"
       style="opacity: 0;"
-      class="flex flex-col justify-center items-center gap-2 backdrop-blur-2xl p-card rounded-card ring ring-primary/20"
+      class="flex flex-col justify-center items-center gap-2 backdrop-blur-2xl p-card rounded-card ring ring-primary/20
+      max-md:w-[90vw]"
     >
       <!--h1>vspace.one</h1-->
-      <h2 class="text-4xl">Ein Makerspace und Hackerspace</h2>
+      <h2 class="text-4xl text-center">Ein Makerspace und Hackerspace</h2>
       <p>
         <a class="text-xl" href="/tour">Hier gehts zur virtuellen Space-Tour!</a
         >
@@ -20,7 +21,7 @@ import "pannellum/build/pannellum.css";
     </div>
   </div>
   <div class="w-full h-full">
-    <div class="w-full h-full" id="pano-bg"></div>
+    <div style="opacity: 0;" class="w-full h-full" id="pano-bg"></div>
     <!--little-planet
       width="2400"
       height="900"
@@ -36,68 +37,61 @@ import "pannellum/build/pannellum.css";
     import { animate } from "motion";
     import { ease } from "@unom/style";
 
-    const viewer = pannellum.viewer("pano-bg", {
-      panorama: "/pic/panorama/maschinenraum_half.jpg",
-      autoLoad: true,
-      showControls: false,
-    });
+    const init = () => {
+      const panoBg = document.getElementById("pano-bg")!;
 
-    viewer.setYaw(90, true);
-
-    const animateEntry = () => {
-      let scene: any = document.querySelector("little-planet.anim")!;
-      const landingHeadingContainer = document.querySelector(
-        "#landing-heading-container",
-      )!;
-
-      console.log(scene.children);
-
-      scene.addEventListener("load", () => {
-        animate(
-          scene,
-          { scale: [0.9, 1], opacity: [0, 1] },
-          {
-            ...ease.quint!(1.5).out,
-          },
-        );
-
-        animate(
-          landingHeadingContainer,
-          { scale: [0.4, 1], opacity: [0, 1] },
-          {
-            ...ease.quint!(1.4, 0.2).out,
-          },
-        );
-
-        animate(
-          (progress) => {
-            scene.camera = {
-              lon: -180 + ((progress * 270) % 360),
-              lat: progress * 10,
-              fov: 20 + 50 * progress,
-            };
-          },
-          {
-            ...ease.quint!(4).inOut,
-          },
-        );
-
-        /** spring({
-            stiffness: 10,
-            damping: 40,
-            mass: 2,
-            restSpeed: 0.01,
-            restDistance: 0.001,
-          }) */
+      const viewer = pannellum.viewer(panoBg, {
+        panorama: "/pic/panorama/maschinenraum_half.jpg",
+        autoLoad: true,
+        showControls: false,
       });
+
+      viewer.setYaw(90, false);
+
+      const animateEntry = () => {
+        const landingHeadingContainer = document.querySelector(
+          "#landing-heading-container",
+        )!;
+
+        viewer.on("load", () => {
+          console.log("loaded");
+
+          animate(
+            panoBg,
+            { scale: [0.9, 1], opacity: [0, 1] },
+            {
+              ...ease.quint!(1.5).out,
+            },
+          );
+
+          animate(
+            landingHeadingContainer,
+            { scale: [0.4, 1], opacity: [0, 1] },
+            {
+              ...ease.quint!(1.4, 0.2).out,
+            },
+          );
+
+          animate(
+            (progress) => {
+              viewer.setPitch(progress * 10, false);
+              viewer.setYaw(160 + ((progress * 270) % 360), false);
+              viewer.setHfov(50 + progress * 50, false);
+            },
+            {
+              ...ease.quint!(4).inOut,
+            },
+          );
+        });
+      };
+
+      animateEntry();
     };
 
-    animateEntry();
+    init();
 
     document.addEventListener("astro:after-swap", () => {
-      animateEntry();
+      init();
     });
   </script>
-  <script is:inline type="module" src="https://unpkg.com/little-planet@0.5"
-  ></script>
 </div>
