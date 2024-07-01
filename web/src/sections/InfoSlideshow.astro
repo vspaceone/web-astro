@@ -3,7 +3,7 @@ import InfoSlide from "@/components/InfoSlide.astro";
 import { infoSlides } from "@/content/info-slides";
 ---
 
-<div class="max-w-[1800px] m-auto">
+<div class="m-auto">
   <div class="keen-slider" id="info-slideshow">
     {infoSlides.map((e) => <InfoSlide infoSlide={e} />)}
   </div>
@@ -13,7 +13,7 @@ import { infoSlides } from "@/content/info-slides";
   import KeenSlider, { type KeenSliderOptions } from "keen-slider";
 
   const options: KeenSliderOptions = {
-    loop: true,
+    loop: false,
 
     slides: {
       spacing: 12,

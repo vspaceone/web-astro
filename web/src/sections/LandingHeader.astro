@@ -1,5 +1,5 @@
 ---
-
+import "pannellum/build/pannellum.css";
 ---
 
 <div class="h-[60vh] w-full flex justify-center items-center">
@@ -19,17 +19,30 @@
       </p>
     </div>
   </div>
-  <div class="h-full w-full overflow-hidden">
-    <little-planet
-      class="anim object-cover"
-      src="/pic/panorama/maschinenraum_quarter.jpg"
-      width="1600"
-      height="1200"
-      mode="pano"></little-planet>
+  <div class="w-full h-full">
+    <div class="w-full h-full" id="pano-bg"></div>
+    <!--little-planet
+      width="2400"
+      height="900"
+      class="anim"
+      src="/pic/panorama/maschinenraum_half.jpg"
+      mode="pano"></!little-planet-->
   </div>
+  <script
+    is:inline
+    type="text/javascript"
+    src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
   <script>
     import { animate } from "motion";
     import { ease } from "@unom/style";
+
+    const viewer = pannellum.viewer("pano-bg", {
+      panorama: "/pic/panorama/maschinenraum_half.jpg",
+      autoLoad: true,
+      showControls: false,
+    });
+
+    viewer.setYaw(90, true);
 
     const animateEntry = () => {
       let scene: any = document.querySelector("little-planet.anim")!;
@@ -37,7 +50,7 @@
         "#landing-heading-container",
       )!;
 
-      console.log(scene.width);
+      console.log(scene.children);
 
       scene.addEventListener("load", () => {
         animate(
