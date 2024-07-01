@@ -60,11 +60,11 @@ import { Menu } from "lucide-astro";
 <script>
   import { animate, spring, stagger } from "motion";
 
-  const button = document.getElementById("nav-button")!;
-  const navMobile = document.getElementById("nav-mobile")!;
-  const navButtons = navMobile.children;
-
   const init = () => {
+    const button = document.getElementById("nav-button")!;
+    const navMobile = document.getElementById("nav-mobile")!;
+    const navButtons = navMobile.children;
+
     button.addEventListener("click", () => {
       if (navMobile.classList.contains("hidden")) {
         animate(

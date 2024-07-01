@@ -1,5 +1,7 @@
 ---
 import "pannellum/build/pannellum.css";
+import pano from "../../public/pic/panorama/maschinenraum_half.jpg";
+import { Image } from "astro:assets";
 ---
 
 <div class="h-[60vh] w-full flex justify-center items-center">
@@ -21,6 +23,13 @@ import "pannellum/build/pannellum.css";
     </div>
   </div>
   <div class="w-full h-full">
+    <Image
+      format="avif"
+      id="pano-img"
+      class="hidden"
+      src={pano}
+      alt="Ein Panorama Bild des Maschinenraums"
+    />
     <div style="opacity: 0;" class="w-full h-full" id="pano-bg"></div>
     <!--little-planet
       width="2400"
@@ -39,9 +48,10 @@ import "pannellum/build/pannellum.css";
 
     const init = () => {
       const panoBg = document.getElementById("pano-bg")!;
+      const panoImg = document.getElementById("pano-img")! as HTMLImageElement;
 
       const viewer = pannellum.viewer(panoBg, {
-        panorama: "/pic/panorama/maschinenraum_half.jpg",
+        panorama: panoImg.src,
         autoLoad: true,
         showControls: false,
       });
