@@ -1,5 +1,5 @@
 ---
-import Card from "@/components/Card.astro";
+import CardEvent from "@/components/Cards/CardEvent.astro";
 import Heading from "@/components/Heading.astro";
 import { getEvents } from "@/lib/events-api";
 
@@ -8,25 +8,5 @@ const events = await getEvents();
 
 <Heading>Events</Heading>
 <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-main">
-  {
-    events.map((e) => (
-      <Card class="" padding={false}>
-        <div class="bg-primary rounded-t-card p-card">
-          <h5 class="text-neutral">
-            {e.start.toLocaleDateString("de-DE", { year: "numeric" })}
-          </h5>
-          <h2 class="text-4xl text-neutral">
-            {e.start.toLocaleDateString("de-DE", {
-              month: "long",
-              day: "numeric",
-            })}
-          </h2>
-        </div>
-        <div class="p-card">
-          <h3>{e.title}</h3>
-          <Fragment class="text-secondary" set:html={e.description} />
-        </div>
-      </Card>
-    ))
-  }
+  {events.map((e) => <CardEvent event={e} />)}
 </div>

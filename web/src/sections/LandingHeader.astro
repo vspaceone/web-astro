@@ -38,13 +38,10 @@ import { Image } from "astro:assets";
       src="/pic/panorama/maschinenraum_half.jpg"
       mode="pano"></!little-planet-->
   </div>
-  <script
-    is:inline
-    type="text/javascript"
-    src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
   <script>
     import { animate } from "motion";
     import { ease } from "@unom/style";
+    import "pannellum";
 
     const init = () => {
       const panoBg = document.getElementById("pano-bg")!;
