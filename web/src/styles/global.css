@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   --color-main: 0 0% 0%;
   --color-main: 0 0% 10%;

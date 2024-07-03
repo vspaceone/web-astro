@@ -1,19 +1,30 @@
 ---
 import Button, { button } from "../Button.astro";
 import { Menu } from "lucide-astro";
+import Logo from "../Logo/Logo.astro";
 ---
 
-<header id="header" class="fixed top-0 w-full h-[100px] z-50">
+<header id="nav-container" class="fixed top-0 w-full h-[100px] z-50">
   <div
-    class="bg-neutral-accent/90 w-full h-full absolute -z-20 backdrop-blur-lg"
+    class="w-full h-full absolute -z-20 backdrop-blur-lg"
+    style="  
+    background-image:
+      linear-gradient(to bottom, transparent, hsl(var(--color-neutral)) 100%),
+      repeating-linear-gradient(60deg, transparent, hsl(var(--color-neutral) / 0.9) 1px, hsl(var(--color-neutral) / 0.1) 6px );"
   >
   </div>
   <div
     class="flex flex-row justify-between h-full w-full max-w-section m-auto p-main"
   >
     <div class="flex justify-center items-center">
-      <a class="no-underline" href="/">
-        <h2 class="text-3xl font-extrabold">vspace.one</h2>
+      <a
+        class="no-underline flex flex-row justify-center items-center gap-2 hover:opacity-85 transition-opacity"
+        href="/"
+      >
+        <div class="w-12 text-main">
+          <Logo withText={false} />
+        </div>
+        <h2 class="text-3xl transition-all font-extrabold">vspace.one</h2>
       </a>
     </div>
     <Button
@@ -64,6 +75,11 @@ import { Menu } from "lucide-astro";
 
 <script>
   import { animate, spring, stagger } from "motion";
+  import { ease } from "@unom/style";
+
+  const navContainer = document.getElementById("nav-container")!;
+
+  animate(navContainer, { y: [-100, 0] }, { ...ease.quint!(0.8).out });
 
   const init = () => {
     const button = document.getElementById("nav-button")!;
