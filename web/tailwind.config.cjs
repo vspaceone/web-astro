@@ -50,7 +50,12 @@ module.exports = {
         main: "var(--padding-main)",
         card: "var(--padding-card)",
       },
-
+      height: {
+        header: "var(--height-header)",
+      },
+      spacing: {
+        header: "var(--height-header)",
+      },
       maxWidth: {
         section: "var(--max-width-section)",
         form: "var(--max-width-form)",

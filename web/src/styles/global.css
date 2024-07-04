@@ -23,6 +23,8 @@
   --gap-card: 1rem;
 
   --max-width-section: 100%;
+
+  --height-header: 80px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +57,8 @@ h1 {
 @media (--lg-viewport) {
   :root {
     --max-width-section: 1000px;
+
+    --height-header: 90px;
   }
 }
 
@@ -63,6 +67,8 @@ h1 {
     --max-width-section: 1550px;
 
     --padding-main: 45px 100px;
+
+    --height-header: 100px;
   }
 }
 
