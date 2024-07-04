@@ -49,6 +49,7 @@ module.exports = {
       padding: {
         main: "var(--padding-main)",
         card: "var(--padding-card)",
+        header: "var(--height-header)",
       },
       height: {
         header: "var(--height-header)",
