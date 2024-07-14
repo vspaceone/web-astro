@@ -1,0 +1,17 @@
+<script>
+  import animateHeading from "@/lib/animate-heading";
+
+  const init = () => {
+    const headings = document.querySelectorAll(".animated-heading");
+
+    headings.forEach((e) => {
+      animateHeading(e);
+    });
+  };
+
+  init();
+
+  document.addEventListener("astro:after-swap", () => {
+    init();
+  });
+</script>

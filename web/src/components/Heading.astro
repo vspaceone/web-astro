@@ -3,18 +3,25 @@ import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "astro/types";
 import { type VariantProps, cva } from "class-variance-authority";
 
-const heading = cva("max-w-3xl m-[var(--section-heading-margin)]", {
-  variants: {
-    main: {
-      true: "font-bold",
-      false: "font-semibold",
-    },
-    padding: {
-      true: "py-4",
-      false: "p-0",
+const heading = cva(
+  "max-w-3xl m-[var(--section-heading-margin)] overflow-hidden",
+  {
+    variants: {
+      main: {
+        true: "font-bold animated-heading",
+        false: "font-semibold",
+      },
+      animated: {
+        true: "animated-heading",
+        false: "",
+      },
+      padding: {
+        true: "py-4",
+        false: "p-0",
+      },
     },
   },
-});
+);
 
 export interface Props
   extends HTMLAttributes<"h1" | "h2">,
@@ -22,22 +29,28 @@ export interface Props
   subtitle?: string;
 }
 
-const { main = false, padding = true, subtitle } = Astro.props;
+const {
+  main = false,
+  padding = true,
+  subtitle,
+  id,
+  class: propsClass,
+} = Astro.props;
 
 const titleClass = cn(
-  heading({ main, padding }),
-  subtitle ? "mb-[calc(var(--section_heading-margin-bottom)_/_2)]" : ""
+  heading({ main, padding, class: propsClass }),
+  subtitle ? "mb-[calc(var(--section_heading-margin-bottom)_/_2)]" : "",
 );
 ---
 
 <div class="z-0 relative">
   {
     main ? (
-      <h1 class={titleClass}>
+      <h1 id={id} class={titleClass}>
         <slot />
       </h1>
     ) : (
-      <h2 class={titleClass}>
+      <h2 id={id} class={titleClass}>
         <slot />
       </h2>
     )

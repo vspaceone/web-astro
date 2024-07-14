@@ -140,3 +140,7 @@ li {
     opacity: 0;
   }
 }
+
+.letter {
+  display: inline-block;
+}
