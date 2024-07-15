@@ -1,6 +1,6 @@
 import { animate, spring, stagger } from "motion";
 
-export default function animateHeading(e: Element, delay?: number) {
+export default function animateHeading(e: Element, options?: { delay?: number, once?: boolean }) {
     const id = Math.floor(Math.random() * 100).toString();
 
     e.id = id;
@@ -8,7 +8,8 @@ export default function animateHeading(e: Element, delay?: number) {
     if (e.textContent) {
         e.innerHTML = e.textContent.replace(
             /\S/g,
-            "<span class='letter'>$&</span>",
+            `<span class='letter 
+            bg-gradient-to-t from-primary/40 to-primary bg-clip-text bg-contain p-0'>$&</span>`,
         );
 
         const updatedElement = document.getElementById(id)!;
@@ -17,17 +18,26 @@ export default function animateHeading(e: Element, delay?: number) {
 
         const letters = updatedElement.querySelectorAll(`:scope > .letter`);
 
+
+        let didAppear = false;
+
         const observer = new IntersectionObserver(
             () => {
                 console.log("inview");
+
+                if (options?.once && didAppear) {
+                    return;
+                }
+
                 animate(
                     letters,
-                    { y: [100, 0] },
+                    { y: [50, 0] },
                     {
-                        easing: spring({ stiffness: 200, damping: 20 }),
-                        delay: stagger(0.02, { start: delay !== undefined ? delay : 0 }),
+                        easing: spring({ stiffness: 100, damping: 40 }),
+                        delay: stagger(0.02, { start: options?.delay !== undefined ? didAppear ? 0 : options.delay : 0 }),
                     },
                 );
+                didAppear = true;
             },
             { threshold: 0.01 },
         );

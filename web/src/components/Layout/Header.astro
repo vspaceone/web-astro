@@ -4,13 +4,12 @@ import { Menu } from "lucide-astro";
 import Logo from "../Logo/Logo.astro";
 ---
 
-<header id="nav-container" class="fixed top-0 w-full h-header z-50">
+<header id="nav-container" class="fixed -top-1 w-full h-header z-50 hidden">
   <div
     class="w-full h-full absolute -z-20 backdrop-blur-lg"
-    style="  
-    background-image:
-      linear-gradient(to bottom, transparent, hsl(var(--color-neutral)) 100%),
-      repeating-linear-gradient(60deg, transparent, hsl(var(--color-neutral-accent) / 0.7) 2px, hsl(var(--color-neutral-accent) / 1) 4px );"
+    style="background-image:
+        linear-gradient(to bottom, transparent, hsl(var(--color-neutral) / 0.8) 100%),
+        repeating-linear-gradient(60deg, transparent, hsl(var(--color-neutral-accent) / 0.2) 0.5rem, hsl(var(--color-neutral-accent) / 1) 0.5rem );"
   >
   </div>
   <div
@@ -25,7 +24,7 @@ import Logo from "../Logo/Logo.astro";
           <Logo withText={false} />
         </div>
         <h2
-          class="text-2xl text-primary lg:text-3xl transition-all font-extrabold"
+          class="text-2xl text-main lg:text-3xl transition-all font-extrabold"
         >
           vspace.one
         </h2>
@@ -59,12 +58,12 @@ import Logo from "../Logo/Logo.astro";
       >
     </div>
     <div class="flex flex-row gap-2 items-center max-lg:hidden">
-      <a class={button({ variant: "secondary", size: "lg" })} href="/#location"
+      <a class={button({ variant: "link", size: "lg" })} href="/#location"
         >Standort</a
       >
       <a
         class={button({
-          variant: "secondary",
+          variant: "link",
           size: "lg",
           class: "max-md:hidden",
         })}
@@ -83,12 +82,17 @@ import Logo from "../Logo/Logo.astro";
 
   const navContainer = document.getElementById("nav-container")!;
 
+  navContainer.classList.remove("hidden");
+
   animate(navContainer, { y: [-100, 0] }, { ...ease.quint!(0.8).out });
 
   const init = () => {
     const button = document.getElementById("nav-button")!;
     const navMobile = document.getElementById("nav-mobile")!;
     const navButtons = navMobile.children;
+    const navContainer = document.getElementById("nav-container")!;
+
+    navContainer.classList.remove("hidden");
 
     button.addEventListener("click", () => {
       if (navMobile.classList.contains("hidden")) {
