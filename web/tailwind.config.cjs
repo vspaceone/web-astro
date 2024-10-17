@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Ubuntu"],
+        display: ["Ubuntu", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       screens: { "2xl": "1400px", "3xl": "1850px" },
       borderRadius: {
