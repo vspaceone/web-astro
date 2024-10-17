@@ -1,23 +1,35 @@
 ---
 import Heading from "@/components/Heading.astro";
+import vspaceOneRakete from "../../public/pic/vspaceone_Illustrationen_Rakete_1.webp";
+import { Image } from "astro:assets";
 ---
 
-<div>
-  <Heading>Was wir machen</Heading>
-
-  <p>
-    Unser Ziel ist der Wissensaustausch sowie die Bildung aller interessierten
-    in den Bereichen neuartiger computergestützter Technologien (wie zum
-    Beispiel aber nicht ausschließlich 3D-Druck, CNC, Internet der Dinge und
-    Robotik), der Elektrotechnik und Elektronik sowie auch auf Gebieten der
-    Reparatur und Wartung.
-    <br />
-    Natürlich aber auch ganz im Sinne aller anderen Hacker- und Makerspaces das bieten
-    einer Plattform, um seinen Interessen in diesen Gebieten nachzugehen von Programmieren
-    bis Holz- und Metallwerken ist fast alles dabei.
-    <br />
-    Dazu haben wir eine immer größer werdende offene Werkstatt, die für jeden zugänglich
-    sein soll!
-  </p>
-  <a href="/faq">Mehr Fragen zu uns und was wir machen beantworten wir hier!</a>
+<div class="flex flex-col-reverse lg:flex-row lg:items-center">
+  <div class="flex-shrink-0">
+    <Heading>Was wir machen</Heading>
+    <p>
+      Unser Ziel ist der Wissensaustausch sowie die Bildung aller interessierten
+      in den Bereichen neuartiger computergestützter Technologien (wie zum
+      Beispiel aber nicht ausschließlich 3D-Druck, CNC, Internet der Dinge und
+      Robotik), der Elektrotechnik und Elektronik sowie auch auf Gebieten der
+      Reparatur und Wartung.
+      <br />
+      Natürlich aber auch ganz im Sinne aller anderen Hacker- und Makerspaces das
+      bieten einer Plattform, um seinen Interessen in diesen Gebieten nachzugehen
+      von Programmieren bis Holz- und Metallwerken ist fast alles dabei.
+      <br />
+      Dazu haben wir eine immer größer werdende offene Werkstatt, die für jeden zugänglich
+      sein soll!
+    </p>
+    <a href="/faq"
+      >Mehr Fragen zu uns und was wir machen beantworten wir hier!</a
+    >
+  </div>
+  <div class="flex w-full h-full max-lg:max-w-[300px] lg:min-w-[300px]">
+    <Image
+      class="object-fit w-full h-full"
+      src={vspaceOneRakete}
+      alt="Ein 3D Rendering einer Rakete"
+    />
+  </div>
 </div>

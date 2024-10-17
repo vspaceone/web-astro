@@ -1,32 +1,36 @@
 ---
-import Card from "@/components/Card.astro";
+import CardParticipate from "@/components/Cards/CardParticipate.astro";
 import Heading from "@/components/Heading.astro";
+import { Icon } from "astro-icon/components";
+import { HeartHandshake, Binoculars, UsersRound } from "lucide-astro";
 ---
 
 <div id="Mitmachen">
   <Heading>Mitmachen</Heading>
   <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-main">
-    <Card>
-      <h3>Vorbeischauen</h3>
-      <p>
+    <CardParticipate title="Vorbeischauen">
+      <Binoculars slot="icon" class="w-full h-full" />
+      <p slot="content">
         Du möchtest uns und unsere Räumlichkeiten gerne persönlich kennenlernen?
         Schau doch Dienstags ab 19:00 bei uns in der Am Krebsgraben 15 in
         Villingen vorbei. Dienstags findet bei uns jede Woche der Chaostreff
         statt.
       </p>
-    </Card>
-    <Card>
-      <h3>Mitglied werden</h3>
-      <p>
+    </CardParticipate>
+
+    <CardParticipate title="Mitglied werden">
+      <UsersRound slot="icon" class="w-full h-full" />
+      <p slot="content">
         Bei uns kann Jeder und Jede mitmachen. Interessierte Schüler, Studenten
         und Erwachsene, die sich für kreativen Umgang mit Technik begeistern
         sind willkommen. Wenn euch gefällt was wir tun und ihr uns unterstützen
         wollt findet ihr unser Beitrittsformular <a href="/join">hier</a>.
       </p>
-    </Card>
-    <Card>
-      <h3>Telegram</h3>
-      <p>
+    </CardParticipate>
+    <CardParticipate title="Telegram">
+      <Icon slot="icon" class="w-full h-full" name="akar-icons:telegram-fill" />
+
+      <p slot="content">
         Für die regelmäßige Kommunikation verwenden wir <a
           href="https://t.me/joinchat/DmNdswpnKgox_zzqENYXiA">Telegramgruppe</a
         > und <a href="https://matrix.to/#/#vspaceone-general:matrix.org"
@@ -36,15 +40,16 @@ import Heading from "@/components/Heading.astro";
         interessierst und wissen willst, was bei uns los ist, trete ihr bei oder
         schreibe uns eine Email an info[at]vspace.one.
       </p>
-    </Card>
-    <Card>
-      <h3>Spenden</h3>
-      <p>
+    </CardParticipate>
+
+    <CardParticipate title="Spenden">
+      <HeartHandshake class="w-full h-full" slot="icon" />
+      <p slot="content">
         Dir gefällt was wir machen, hast aber keine Möglichkeit oder Lust
         Mitglied zu werden? Gerne nehmen wir wie <a href="/donate"
           >hier beschrieben</a
         > deine Spende als Überweisung an.
       </p>
-    </Card>
+    </CardParticipate>
   </div>
 </div>

@@ -24,7 +24,7 @@ import Logo from "../Logo/Logo.astro";
           <Logo withText={false} />
         </div>
         <h2
-          class="text-2xl text-main lg:text-3xl transition-all font-extrabold"
+          class="text-2xl text-main lg:text-3xl transition-all font-extrabold font-display"
         >
           vspace.one
         </h2>
@@ -43,8 +43,8 @@ import Logo from "../Logo/Logo.astro";
       class="animate-in slide-in-from-top-10 ease-out-quart duration-1000 absolute top-header w-full
       bg-neutral p-main left-0 lg:hidden hidden flex flex-col gap-3 -z-30"
     >
-      <a class={button({ variant: "secondary", size: "lg" })} href="/#location"
-        >Standort</a
+      <a class={button({ variant: "secondary", size: "lg" })} href="/support"
+        >Unterstütze uns</a
       >
       <a
         class={button({
@@ -53,13 +53,13 @@ import Logo from "../Logo/Logo.astro";
         })}
         href="/faq">FAQ</a
       >
-      <a class={button({ variant: "primary", size: "lg" })} href="/support"
-        >Unterstütze uns!</a
+      <a class={button({ variant: "primary", size: "lg" })} href="/#location"
+        >Besuche uns!</a
       >
     </div>
     <div class="flex flex-row gap-2 items-center max-lg:hidden">
-      <a class={button({ variant: "link", size: "lg" })} href="/#location"
-        >Standort</a
+      <a class={button({ variant: "link", size: "lg" })} href="/support"
+        >Unterstütze uns</a
       >
       <a
         class={button({
@@ -69,8 +69,8 @@ import Logo from "../Logo/Logo.astro";
         })}
         href="/faq">FAQ</a
       >
-      <a class={button({ variant: "primary", size: "lg" })} href="/support"
-        >Unterstütze uns!</a
+      <a class={button({ variant: "primary", size: "lg" })} href="/#location"
+        >Besuche uns!</a
       >
     </div>
   </div>

@@ -13,11 +13,11 @@ const { event } = Astro.props;
   <div class="bg-primary rounded-t-card p-card">
     <h3 class="text-neutral">
       <span class="block font-medium">
-        {event.start.toLocaleDateString("de-DE", { year: "numeric" })}
+        {event.start?.toLocaleDateString("de-DE", { year: "numeric" })}
       </span>
       <span class="block font-bold text-4xl">
         {
-          event.start.toLocaleDateString("de-DE", {
+          event.start?.toLocaleDateString("de-DE", {
             month: "long",
             day: "numeric",
           })

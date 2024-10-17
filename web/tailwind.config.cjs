@@ -5,6 +5,9 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      fontFamily: {
+        display: ["Ubuntu"],
+      },
       screens: { "2xl": "1400px", "3xl": "1850px" },
       borderRadius: {
         card: "0.5rem",
@@ -65,7 +68,7 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    plugin(function ({ addVariant }) {
+    plugin(({ addVariant }) => {
       addVariant("hocus", ["&:hover", "&:focus"]);
     }),
   ],

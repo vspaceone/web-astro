@@ -4,12 +4,13 @@ import type { HTMLAttributes } from "astro/types";
 import { type VariantProps, cva } from "class-variance-authority";
 
 const heading = cva(
-  "max-w-3xl m-[var(--section-heading-margin)] overflow-hidden",
+  "max-w-3xl m-[var(--section-heading-margin)] overflow-hidden font-display",
   {
     variants: {
       main: {
         true: "font-bold text-transparent animated-heading \
-        bg-gradient-to-t from-transparent to-primary bg-clip-text",
+        bg-gradient-to-t from-transparent to-primary bg-clip-text \
+        ",
         false: "font-semibold",
       },
       animated: {
@@ -19,6 +20,10 @@ const heading = cva(
       padding: {
         true: "py-4",
         false: "p-0",
+      },
+      hasIcon: {
+        true: "",
+        false: "",
       },
     },
   },
@@ -33,6 +38,7 @@ export interface Props
 const {
   main = false,
   padding = true,
+  hasIcon = false,
   subtitle,
   id,
   class: propsClass,
@@ -45,6 +51,13 @@ const titleClass = cn(
 ---
 
 <div class="z-0 relative">
+  {
+    hasIcon && (
+      <div class="w-16 h-16 text-primary mb-4">
+        <slot name="icon" />
+      </div>
+    )
+  }
   {
     main ? (
       <h1 id={id} class={titleClass}>
