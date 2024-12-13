@@ -1,44 +1,36 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@payload-config": [
-        "./payload.config.ts"
-      ]
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Default",
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "esnext",
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
+        "composite": true,
+        "downlevelIteration": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowJs": true,
+        // linting stuff
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "useUnknownInCatchVariables": true,
+        "noUncheckedIndexedAccess": true, // TLDR - Checking an indexed value (array[0]) now forces type <T | undefined> as there is no confirmation that index exists
+        // THE BELOW ARE EXTRA STRICT OPTIONS THAT SHOULD ONLY BY CONSIDERED IN VERY SAFE PROJECTS
+        // "exactOptionalPropertyTypes": true, // TLDR - Setting to undefined is not the same as a property not being defined at all
+        // "noPropertyAccessFromIndexSignature": true, // TLDR - Use dot notation for objects if youre sure it exists, use ['index'] notaion if unsure
     },
-    "target": "ES2017"
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
 }

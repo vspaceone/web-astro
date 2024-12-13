@@ -1,7 +1,7 @@
 ---
 import type { z } from "astro:content";
 import type { Sponsor } from "@/content/config";
-import Card from "../Card.astro";
+import Card from "@/components/Card/Card.astro";
 
 type Props = {
   sponsor: z.output<typeof Sponsor>;

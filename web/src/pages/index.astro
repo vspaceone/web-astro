@@ -3,9 +3,9 @@ import LandingHeader from "@/sections/LandingHeader.astro";
 import RootLayout from "../layouts/RootLayout.astro";
 import Section from "@/components/Section.astro";
 import Introduction from "@/sections/Introduction.astro";
-import SpaceState from "@/sections/SpaceState.astro";
+import SpaceState from "@/sections/SpaceState";
 import Participate from "@/sections/Participate.astro";
-import Events from "@/sections/Events.astro";
+import Events from "@/sections/Events";
 import Location from "@/sections/Location.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import InfoSlideshow from "@/sections/InfoSlideshow.astro";
@@ -28,10 +28,10 @@ import InfoSlideshow from "@/sections/InfoSlideshow.astro";
       <InfoSlideshow />
     </Section>
     <Section id="events">
-      <Events />
+      <Events client:only="solid-js" />
     </Section>
     <Section id="state">
-      <SpaceState />
+      <SpaceState client:only="solid-js" />
     </Section>
     <Section id="location">
       <Location />

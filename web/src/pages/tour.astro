@@ -6,6 +6,11 @@ import RootLayout from "@/layouts/RootLayout.astro";
 ---
 
 <RootLayout title="Virtuelle Tour durch unsere Räume">
+  <link
+    slot="head"
+    href="https://next.esm.sh/@photo-sphere-viewer/core@5.11.1/index.css"
+    rel="stylesheet"
+  />
   <MainLayout>
     <Section padding={false} maxWidth={false}>
       <VirtualTour />

@@ -1,19 +1,16 @@
----
-import "@photo-sphere-viewer/core/index.css";
----
-
 <div class="h-[95vh] overflow-hidden relative z-0">
   <div class="w-full h-full" id="virtual-tour"></div>
 </div>
 
-<script>
-  import type { VirtualTourPlugin as VirtualTourPluginType } from "@photo-sphere-viewer/virtual-tour-plugin";
-  const { Viewer } = await import("@photo-sphere-viewer/core");
+<script is:inline>
+  const { Viewer } = await import(
+    "https://next.esm.sh/@photo-sphere-viewer/core@5.11.1"
+  );
   const { VirtualTourPlugin } = await import(
-    "@photo-sphere-viewer/virtual-tour-plugin"
+    "https://next.esm.sh/@photo-sphere-viewer/virtual-tour-plugin@5.11.1"
   );
 
-  const container: HTMLElement = document.querySelector("#virtual-tour")!;
+  const container = document.querySelector("#virtual-tour");
 
   var viewer = new Viewer({
     container,
@@ -35,8 +32,7 @@ import "@photo-sphere-viewer/core/index.css";
     ],
   });
 
-  const virtualTour: VirtualTourPluginType =
-    viewer.getPlugin(VirtualTourPlugin);
+  const virtualTour = viewer.getPlugin(VirtualTourPlugin);
 
   virtualTour.setNodes(
     [

@@ -1,6 +1,8 @@
 ---
-import Card from "@/components/Card.astro";
-import Heading from "@/components/Heading.astro";
+import Card from "@/components/Card/Card.astro";
+import Heading from "@/components/Heading/Heading.astro";
+import { config } from "@/config";
+
 import { getSpaceData } from "@/lib/space-api";
 
 const data = await getSpaceData();
@@ -21,10 +23,10 @@ const data = await getSpaceData();
   </div>
   <div>
     <img
-      class="2xl:rounded-r-card max-2xl:mt-8 max-2xl:rounded-b-card w-full object-cover"
+      class="2xl:rounded-r-card max-2xl:mt-8 max-2xl:rounded-b-card w-full object-cover min-h-[300px]"
       loading="lazy"
       alt="Eine Kartenansicht unseres Standorts."
-      src={`https://api.mapbox.com/styles/v1/enricobuehler/clxyishk7001701pieyuehje0/static/pin-l+089f59(${data.location.lon},${data.location.lat})/${data.location.lon},${data.location.lat},15.5,0/900x600?access_token=${import.meta.env.PUBLIC_MAPBOX_TOKEN}`}
+      src={`https://api.mapbox.com/styles/v1/enricobuehler/clxyishk7001701pieyuehje0/static/pin-l+089f59(${data.location.lon},${data.location.lat})/${data.location.lon},${data.location.lat},15.5,0/900x600?access_token=${config.publicMapboxToken}`}
     />
   </div>
 </Card>

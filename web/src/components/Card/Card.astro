@@ -1,0 +1,16 @@
+---
+import { cardStyles, type CardProps } from "./common";
+
+export interface Props extends CardProps {}
+
+const {
+  interactable = false,
+  padding = true,
+  class: _class,
+  ...props
+} = Astro.props;
+---
+
+<div {...props} class={cardStyles({ interactable, padding, class: _class })}>
+  <slot />
+</div>

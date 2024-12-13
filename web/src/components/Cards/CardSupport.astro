@@ -1,5 +1,5 @@
 ---
-import { card } from "../Card.astro";
+import { cardStyles } from "../Card/common";
 
 type Props = {
   title: string;
@@ -10,7 +10,7 @@ type Props = {
 const { text, title, to } = Astro.props;
 ---
 
-<a href={to} class={card({ interactable: true, padding: true })}>
+<a href={to} class={cardStyles({ interactable: true, padding: true })}>
   <div class="w-16 h-16 text-primary mb-4">
     <slot name="icon" />
   </div>

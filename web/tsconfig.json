@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "baseUrl": "./src",
+    "strict": true,
     "paths": {
       "@/*": [
         "./*"
@@ -10,7 +11,13 @@
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
-      },
+      }
     ],
-  }
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

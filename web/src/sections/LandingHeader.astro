@@ -2,7 +2,7 @@
 import "pannellum/build/pannellum.css";
 import pano from "../../public/pic/panorama/maschinenraum_half.jpg";
 import { Image } from "astro:assets";
-import Heading from "@/components/Heading.astro";
+import Heading from "@/components/Heading/Heading.astro";
 ---
 
 <div class="h-[60vh] w-full flex justify-center items-center">
@@ -33,21 +33,17 @@ import Heading from "@/components/Heading.astro";
       </p>
     </div>
   </div>
-  <div class="w-full h-full">
+  <div class="w-full h-full overflow-hidden">
     <Image
       format="avif"
+      width="1000"
+      height="500"
       id="pano-img"
       class="hidden"
       src={pano}
       alt="Ein Panorama Bild des Maschinenraums"
     />
-    <div style="opacity: 0;" class="w-full h-full" id="pano-bg"></div>
-    <!--little-planet
-      width="2400"
-      height="900"
-      class="anim"
-      src="/pic/panorama/maschinenraum_half.jpg"
-      mode="pano"></!little-planet-->
+    <div style="opacity: 0;" class="w-full h-full blur-sm" id="pano-bg"></div>
   </div>
   <script>
     import { animate } from "motion";
@@ -86,7 +82,7 @@ import Heading from "@/components/Heading.astro";
         viewer.on("load", () => {
           animate(
             panoBg,
-            { scale: [0.9, 1], opacity: [0, 1] },
+            { scale: [1.5, 1], opacity: [0, 1] },
             {
               ...ease.quint!(1.5).out,
             },

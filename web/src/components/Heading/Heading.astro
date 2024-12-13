@@ -1,0 +1,48 @@
+---
+import { cn } from "@/lib/utils";
+import { type HeadingProps, headingStyles } from "./common";
+
+export interface Props extends HeadingProps {}
+
+const {
+  main = false,
+  padding = true,
+  hasIcon = false,
+  subtitle,
+  id,
+  class: propsClass,
+} = Astro.props;
+
+const titleClass = cn(
+  headingStyles({ main, padding, class: propsClass }),
+  subtitle ? "mb-[calc(var(--section_heading-margin-bottom)_/_2)]" : "",
+);
+---
+
+<div class="z-0 relative">
+  {
+    hasIcon && (
+      <div class="w-16 h-16 text-primary mb-4">
+        <slot name="icon" />
+      </div>
+    )
+  }
+  {
+    main ? (
+      <h1 id={id} class={titleClass}>
+        <slot />
+      </h1>
+    ) : (
+      <h2 id={id} class={titleClass}>
+        <slot />
+      </h2>
+    )
+  }
+  {
+    subtitle && (
+      <h3 class="font-normal m-[var(--section-heading-margin)] max-w-3xl">
+        {subtitle}
+      </h3>
+    )
+  }
+</div>

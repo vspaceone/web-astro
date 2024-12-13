@@ -76,7 +76,8 @@ Eine Normale Site ist so aufgebaut:
 
 ````
 ---
-import Heading from "@/components/Heading.astro";
+import Heading from "@/components/Heading/Heading.astro";
+
 import Section from "@/components/Section.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import RootLayout from "@/layouts/RootLayout.astro";
