@@ -7,7 +7,7 @@ import { config } from "./config";
 const app = new Hono();
 
 const corsMiddleware = cors({
-	origin: config.frontendPublicUrl,
+	origin: config.cors.origin,
 	allowMethods: ["POST", "GET", "OPTIONS"],
 	allowHeaders: ["Content-Type"],
 });

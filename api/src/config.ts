@@ -8,5 +8,10 @@ export const config: z.output<typeof ConfigSchema> = {
 	frontendPublicUrl: production
 		? "https://vspace.one"
 		: "http://localhost:4321",
+	cors: {
+		origin: production
+			? ["https://vspace.one", "https://www.vspace.one"]
+			: ["http://localhost:4321"],
+	},
 	production,
 };
