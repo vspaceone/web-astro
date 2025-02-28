@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         main: "hsl(var(--color-main))",
         primary: "hsl(var(--color-primary))",
+        brand: "hsl(var(--color-brand))",
         secondary: "hsl(var(--color-secondary))",
         neutral: "hsl(var(--color-neutral))",
         "neutral-accent": "hsl(var(--color-neutral-accent))",

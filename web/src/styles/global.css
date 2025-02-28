@@ -3,13 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 :root {
   --color-main: 0 0% 0%;
   --color-main: 0 0% 10%;
   --color-primary: 150 50% 40%;
-  --color-neutral: 0 0% 100%;
+  --color-brand: 151.97 90.48% 32.94%;
+  --color-neutral: 0 0% 90%;
   --color-neutral-accent: 0 0% 93%;
   --color-highlight: 264 100% 50%;
   --color-success: 132 100% 78%;
@@ -31,7 +30,7 @@
   :root {
     --color-main: 0 0% 100%;
     --color-secondary: 0 0% 80%;
-    --color-primary: 150 90% 60%;
+    --color-primary: 151.97 90% 50%;
     --color-neutral: 160 20% 5%;
     --color-neutral-accent: 160 70% 6%;
     --color-highlight: 336 100% 60%;
@@ -105,15 +104,24 @@ td {
 }
 
 article {
-
-  & h1, h2, h3, h4, h5 {
+  & h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     @apply mt-6;
   }
 
-  & h1, h2, h3, h4, h5, p, ol, ul {
+  & h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  ol,
+  ul {
     @apply mb-4;
   }
-
 }
 
 p,
