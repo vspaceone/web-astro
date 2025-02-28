@@ -52,5 +52,6 @@
     "@types/ical": "^0.8.3",
     "@types/pannellum": "^2.5.0",
     "vite-plugin-chunk-split": "^0.5.0"
-  }
+  },
+  "packageManager": "pnpm@10.5.2"
 }
