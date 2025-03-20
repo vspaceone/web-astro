@@ -7,6 +7,8 @@ pipeline {
 
         MASTER_STAGE_WEBHOOK = credentials('vspaceone-webhook-web-astro-api')
         BETA_STAGE_WEBHOOK = credentials('vspaceone-webhook-web-astro-api-beta')
+
+        DOCKER_BUILDKIT = 1
     }
     stages {
         stage('Build image') {
