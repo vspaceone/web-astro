@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Push latest image') {
             when {
-                expression { env.BRANCH_NAME == 'master' }
+                expression { env.BRANCH_NAME == 'main' }
             }
             steps {
                 script {
@@ -42,9 +42,9 @@ pipeline {
                 }
             }
         }
-        stage('Send master webhooks') {
+        stage('Send main webhooks') {
             when {
-                expression { env.BRANCH_NAME == 'master' }
+                expression { env.BRANCH_NAME == 'main' }
             }
             steps {
                 sh "curl $MASTER_STAGE_WEBHOOK"
