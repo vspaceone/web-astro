@@ -1,11 +1,12 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 
 import mdx from "@astrojs/mdx";
 
 import icon from "astro-icon";
 
 import solidJs from "@astrojs/solid-js";
+
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,6 +22,8 @@ export default defineConfig({
         ],
       },
     },
+
+    plugins: [tailwindcss()],
   },
 
   prefetch: {
@@ -28,9 +31,7 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
+
     mdx(),
     icon(),
     solidJs(),

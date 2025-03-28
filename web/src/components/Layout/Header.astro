@@ -4,16 +4,16 @@ import { Menu } from "lucide-astro";
 import Logo from "../Logo/Logo.astro";
 ---
 
-<header id="nav-container" class="fixed -top-1 w-full h-header z-50 hidden">
+<header id="nav-container" class="fixed -top-1 w-full h-height-header z-50 hidden">
   <div
     class="w-full h-full absolute -z-20 backdrop-blur-lg"
     style="background-image:
-        linear-gradient(to bottom, transparent, hsl(var(--color-neutral) / 0.8) 100%),
-        repeating-linear-gradient(60deg, transparent, hsl(var(--color-neutral-accent) / 0.2) 0.5rem, hsl(var(--color-neutral-accent) / 1) 0.5rem );"
+        linear-gradient(to bottom, transparent, oklch(from var(--color-neutral) l c h / 0.8)),
+        repeating-linear-gradient(60deg, transparent, oklch(from var(--color-neutral-accent) l c h / 0.2) 0.5rem, var(--color-neutral-accent) 0.5rem );"
   >
   </div>
   <div
-    class="flex flex-row justify-between items-center h-full w-full max-w-section m-auto p-main py-0"
+    class="flex flex-row justify-between items-center h-full w-full max-w-max-section m-auto p-main py-0"
   >
     <div class="flex justify-center items-center">
       <a

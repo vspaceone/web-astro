@@ -1,172 +1,153 @@
-@import './breakpoints.css' layer(base);
-@import 'tailwindcss';
-
-@config '../../tailwind.config.cjs';
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
+@import "./timing-functions.css" layer(base);
+@import "./page-transition.css" layer(base);
+@import "tailwindcss";
 
 :root {
-  --color-main: 0 0% 0%;
-  --color-main: 0 0% 10%;
-  --color-primary: 150 50% 40%;
-  --color-brand: 151.97 90.48% 32.94%;
-  --color-neutral: 0 0% 90%;
-  --color-neutral-accent: 0 0% 93%;
-  --color-highlight: 264 100% 50%;
-  --color-success: 132 100% 78%;
-  --color-error: 335 100% 62%;
+  --main: oklch(0 0 0);
+  --main: oklch(0.1 0 0);
+  --primary: oklch(61.09% 0.1221 157.56);
+  --brand: oklch(62% 0.1544 154.08);
+  --neutral: oklch(0.9 0 0);
+  --neutral-accent: oklch(0.93 0 0);
+  --highlight: oklch(50.38% 0.293655 285.3753);
+  --success: oklch(91.1% 0.1605 148.89);
+  --error: oklch(67.36% 0.2339 0.92);
 
-  --padding-main: 25px 25px;
-  --padding-card: 1.25rem 1.25rem;
-
-  --spacing-main: 20px;
-
-  --gap-card: 1rem;
-
-  --max-width-section: 100%;
-
-  --height-header: 80px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-main: 0 0% 100%;
-    --color-secondary: 0 0% 80%;
-    --color-primary: 151.97 90% 50%;
-    --color-neutral: 160 20% 5%;
-    --color-neutral-accent: 160 70% 6%;
-    --color-highlight: 336 100% 60%;
-    --color-success: 132 100% 78%;
-    --color-error: 335 100% 62%;
-  }
-}
-
-html {
-  @apply bg-neutral text-main;
-  font-family: system-ui, sans-serif;
-  scroll-behavior: smooth;
-}
-code {
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+  --font-sans: "Ubuntu", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
+
+  --radius: 0.625rem;
 }
 
-h1 {
-  @apply text-main;
+@theme inline static {
+  --color-main: var(--main);
+  --color-secondary: var(--secondary);
+  --color-primary: var(--primary);
+  --color-brand: var(--brand);
+  --color-neutral: var(--neutral);
+  --color-neutral-accent: var(--neutral-accent);
+  --color-highlight: var(--highlight);
+  --color-success: var(--success);
+  --color-error: var(--error);
+
+  --radius-card: var(--radius);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (--lg-viewport) {
+@theme {
+  --spacing-main: 20px;
+  --spacing-card: 1rem;
+  --spacing-padding-main: 25px;
+  --spacing-padding-card: 1.25rem;
+  --spacing-height-header: 80px;
+
+  --container-max-section: 100%;
+}
+
+@variant dark {
   :root {
-    --max-width-section: 1000px;
-
-    --height-header: 90px;
+    --main: oklch(1 0 0);
+    --secondary: oklch(0.8 0 0);
+    --primary: oklch(84.44% 0.2131 153.61);
+    --neutral: oklch(16.36% 0.0088 172.9);
+    --neutral-accent: oklch(19.73% 0.032 168.99);
+    --highlight: oklch(66.39% 0.2398 3.2);
+    --success: oklch(91.1% 0.1605 148.89);
+    --error: oklch(67.36% 0.2339 0.92);
   }
 }
 
-@media (--xl-viewport) {
+@variant lg {
   :root {
-    --max-width-section: 1550px;
+    --container-max-section: 1000px;
 
-    --padding-main: 45px 100px;
-
-    --height-header: 100px;
+    --spacing-height-header: 90px;
   }
 }
 
-h1 {
-  @apply text-3xl font-bold;
+@variant xl {
+  :root {
+    --container-max-section: 1550px;
+
+    --spacing-padding-main: 45px 100px;
+    --spacing-height-header: 100px;
+  }
 }
 
-h2 {
-  @apply text-2xl font-semibold;
-}
-
-h3 {
-  @apply text-xl font-medium;
-}
-
-h4 {
-  @apply text-lg;
-}
-
-a {
-  @apply underline;
-}
-
-a:hover {
-  @apply decoration-main text-main;
-}
-
-[astro-icon] {
-  fill: currentColor;
-}
-
-td {
-  @apply px-3 py-1 border;
-}
-
-article {
-  & h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    @apply mt-6;
+@layer base {
+  html {
+    @apply bg-neutral text-main font-sans;
+    scroll-behavior: smooth;
   }
 
-  & h1,
-  h2,
-  h3,
-  h4,
-  h5,
+  code {
+    @apply font-mono;
+  }
+
+  h1 {
+    @apply text-main;
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-medium;
+  }
+
+  h4 {
+    @apply text-lg;
+  }
+
+  a {
+    @apply underline;
+  }
+
+  a:hover {
+    @apply decoration-main text-main;
+  }
+
+  [astro-icon] {
+    fill: currentColor;
+  }
+
+  td {
+    @apply px-3 py-1 border;
+  }
+
+  article {
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      @apply mt-6;
+    }
+
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    ol,
+    ul {
+      @apply mb-4;
+    }
+  }
+
   p,
-  ol,
-  ul {
-    @apply mb-4;
+  li {
+    @apply max-w-[600px]  text-base text-secondary;
+    line-height: 1.5;
   }
-}
-
-p,
-li {
-  @apply max-w-[600px]  text-base text-secondary;
-  line-height: 1.5;
-}
-
-@keyframes pageEnter {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes pageLeave {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.letter {
-  display: inline-block;
 }

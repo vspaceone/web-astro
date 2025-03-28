@@ -1,0 +1,18 @@
+@keyframes pageEnter {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pageLeave {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
