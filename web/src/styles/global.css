@@ -41,7 +41,10 @@
 @theme {
   --spacing-main: 20px;
   --spacing-card: 1rem;
-  --spacing-padding-main: 25px;
+
+  --spacing-section-main-x: 25px;
+  --spacing-section-main-y: 25px;
+
   --spacing-padding-card: 1.25rem;
   --spacing-height-header: 80px;
 
@@ -73,7 +76,8 @@
   :root {
     --container-max-section: 1550px;
 
-    --spacing-padding-main: 45px 100px;
+    --spacing-section-main-x: 100px;
+    --spacing-section-main-y: 45px;
     --spacing-height-header: 100px;
   }
 }
