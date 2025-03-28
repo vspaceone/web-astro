@@ -2,8 +2,8 @@
 import Section from "../Section.astro";
 
 enum NavigationItemType {
-  Link,
-  Text,
+  Link = 0,
+  Text = 1,
 }
 
 type NavigationItem =
@@ -32,7 +32,7 @@ const tree: Array<NavigationGroup> = [
         type: NavigationItemType.Link,
         label: "Startseite",
       },
-    
+
       {
         path: "/faq",
         type: NavigationItemType.Link,
@@ -40,9 +40,10 @@ const tree: Array<NavigationGroup> = [
       },
     ],
   },
-  {title: "Unterstützung",
-  items: [
   {
+    title: "Unterstützung",
+    items: [
+      {
         path: "/support/donate",
         type: NavigationItemType.Link,
         label: "Spenden",
@@ -57,7 +58,7 @@ const tree: Array<NavigationGroup> = [
         type: NavigationItemType.Link,
         label: "Werde Mitglied!",
       },
-  ]
+    ],
   },
   {
     title: "Nützliches",
