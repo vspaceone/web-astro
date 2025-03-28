@@ -16,7 +16,7 @@ export default function animateHeading(
 		e.innerHTML = e.textContent.replace(
 			/\S/g,
 			`<span class='letter 
-            bg-gradient-to-t from-primary/40 to-primary bg-clip-text bg-contain p-0'>$&</span>`,
+            bg-linear-to-t from-primary/40 to-primary bg-clip-text bg-contain p-0'>$&</span>`,
 		);
 
 		const updatedElement = document.getElementById(id)!;

@@ -8,7 +8,7 @@ export const cardStyles = cva(
 			interactable: {
 				false: "transition-shadow focus-within:shadow-lg ring-2 ring-main",
 				true: "cursor-pointer shadow-sm hocus:bg-neutral-accent/50 \
-          hocus:shadow-lg hocus:ring-2 hocus:outline-none",
+          hocus:shadow-lg hocus:ring-2 hocus:outline-hidden",
 			},
 			padding: {
 				true: "py-6 px-8",

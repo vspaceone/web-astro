@@ -7,7 +7,7 @@ export const headingStyles = cva(
 		variants: {
 			main: {
 				true: "font-bold text-transparent animated-heading \
-          bg-gradient-to-t from-transparent to-primary bg-clip-text \
+          bg-linear-to-t from-transparent to-primary bg-clip-text \
           ",
 				false: "font-semibold",
 			},
