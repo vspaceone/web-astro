@@ -1,11 +1,10 @@
 ---
 import Heading from "@/components/Heading/Heading.astro";
 
-import vspaceOneRakete from "../../public/pic/vspaceone_Illustrationen_Rakete_1.webp";
-import { Image } from "astro:assets";
+import AnimatedLogo from "@/components/Logo/AnimatedLogo.astro";
 ---
 
-<div class="flex flex-col-reverse lg:flex-row lg:items-center">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
   <div class="shrink-0">
     <Heading>Was wir machen</Heading>
     <p>
@@ -26,8 +25,11 @@ import { Image } from "astro:assets";
       >Mehr Fragen zu uns und was wir machen beantworten wir hier!</a
     >
   </div>
-  <div class="flex w-full h-full max-lg:max-w-[300px] lg:min-w-[300px]">
-    <Image
+  <div
+    class="hidden lg:flex justify-center items-center w-full h-full xl:max-w-[700px] xl:h-[500px] max-lg:max-w-[200px] lg:min-w-[100px]"
+  >
+    <AnimatedLogo />
+    <!--  <Image
       width="750"
       loading="lazy"
       height="750"
@@ -36,6 +38,6 @@ import { Image } from "astro:assets";
       class="object-fit w-full h-full"
       src={vspaceOneRakete}
       alt="Ein 3D Rendering einer Rakete"
-    />
+    /> -->
   </div>
 </div>
