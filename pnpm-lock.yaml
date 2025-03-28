@@ -63,6 +63,9 @@ importers:
       '@astrojs/ts-plugin':
         specifier: ^1.10.4
         version: 1.10.4
+      '@fontsource/inter':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@fontsource/ubuntu':
         specifier: ^5.2.5
         version: 5.2.5
@@ -483,6 +486,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/inter@5.2.5':
+    resolution: {integrity: sha512-kbsPKj0S4p44JdYRFiW78Td8Ge2sBVxi/PIBwmih+RpSXUdvS9nbs1HIiuUSPtRMi14CqLEZ/fbk7dj7vni1Sg==}
 
   '@fontsource/ubuntu@5.2.5':
     resolution: {integrity: sha512-VKVFVqmJ9MGnOJW2dsQ982qHN8Zr+tNeEwEHnzt5VdGi9ZWL37wYFD32YsqukWlI/+I7v5ZkgHTEAvsZxU6aDA==}
@@ -3222,6 +3228,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.1':
     optional: true
+
+  '@fontsource/inter@5.2.5': {}
 
   '@fontsource/ubuntu@5.2.5': {}
 

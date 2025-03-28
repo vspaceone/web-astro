@@ -8,7 +8,9 @@ const { withText, withBg } = Astro.props;
 ---
 
 <svg
+  id="Animated_Logo"
   width="100%"
+  class="invisible"
   height="100%"
   viewBox="0 0 4167 4167"
   version="1.1"
@@ -218,102 +220,122 @@ const { withText, withBg } = Astro.props;
 
 <script>
   import { ease } from "@unom/style";
-  import { animate, stagger } from "motion";
+  import { animate, inView, stagger } from "motion";
 
-  try {
-    animate(
-      "#Hintergrund",
-      { scale: [0, 1] },
-      {
-        type: "spring",
-        stiffness: 100,
-        damping: 40,
-      },
-    );
-  } catch {}
+  let ran = false;
 
-  animate(
-    "#Rauch_Maske",
-    {
-      scale: [0, 1],
+  inView(
+    "#Animated_Logo",
+    () => {
+      const animatedLogo = document.getElementById("Animated_Logo");
+
+      if (!ran) {
+        ran = true;
+        try {
+          animate(
+            "#Hintergrund",
+            { scale: [0, 1] },
+            {
+              type: "spring",
+              stiffness: 100,
+              damping: 40,
+            },
+          );
+        } catch {}
+
+        animate(
+          "#Rauch_Maske",
+          {
+            scale: [0, 1],
+          },
+          { type: "spring", stiffness: 100, damping: 40, delay: 0.5 },
+        );
+
+        animate(
+          ".Rauch_Kreis",
+          { scale: [0, 1] },
+          {
+            type: "spring",
+            stiffness: 200,
+            damping: 10,
+            delay: stagger(0.1, { startDelay: 0.6 }),
+          },
+        );
+
+        animate(
+          "#Rahmen",
+          { scale: [0, 1] },
+          { type: "spring", stiffness: 100, damping: 15, delay: 0.5 },
+        );
+
+        animate(
+          "#Rahmen",
+          { pathLength: [0.7, 1] },
+          { ...ease.quint!(3).out, delay: 0.2 },
+        );
+
+        animate(
+          "#Rakete_Body",
+          { pathLength: [0, 1] },
+          { delay: 0.1, ...ease.quint!(2).out },
+        );
+
+        animate(
+          "#Rakete_Bein-Rechts",
+          { pathLength: [0, 1] },
+          { delay: 0.15, ...ease.quint!(1).out },
+        );
+
+        animate(
+          "#Rakete_Bein-Links",
+          { pathLength: [0, 1] },
+          { delay: 0.15, ...ease.quint!(1).out },
+        );
+
+        animate(
+          "#Rakete_Fenster",
+          { pathLength: [0, 1] },
+          { delay: 0.2, ...ease.quint!(0.8).out },
+        );
+
+        animate(
+          "#Rakete",
+          { y: [500, 0], x: [-500, 0] },
+          {
+            ...ease.quint!(3).out,
+          },
+        );
+
+        animate(
+          "#Rauchstrahl",
+          { y: [500, 0], x: [-500, 0] },
+          {
+            ...ease.quint!(3).out,
+          },
+        );
+
+        try {
+          animate("#text-one", { opacity: [0, 1] }, { delay: 1.4 });
+
+          animate(
+            "#text-vspace",
+            { opacity: [0, 1], y: [100, 0] },
+            { delay: 1.2, ...ease.quint!(0.8).out },
+          );
+
+          animate(
+            ".tagline",
+            { opacity: [0, 1], y: [100, 0] },
+            {
+              delay: stagger(0.3, { startDelay: 1.5 }),
+              ...ease.quint!(0.8).out,
+            },
+          );
+        } catch {}
+
+        setTimeout(() => animatedLogo?.classList.remove("invisible"), 10);
+      }
     },
-    { type: "spring", stiffness: 100, damping: 40, delay: 0.5 },
-  );
-
-  animate(
-    ".Rauch_Kreis",
-    { scale: [0, 1] },
-    {
-      type: "spring",
-      stiffness: 200,
-      damping: 10,
-      delay: stagger(0.1, { startDelay: 0.6 }),
-    },
-  );
-
-  animate(
-    "#Rahmen",
-    { scale: [0, 1] },
-    { type: "spring", stiffness: 100, damping: 15, delay: 0.5 },
-  );
-
-  animate(
-    "#Rahmen",
-    { pathLength: [0.7, 1] },
-    { ...ease.quint!(3).out, delay: 0.2 },
-  );
-
-  animate(
-    "#Rakete_Body",
-    { pathLength: [0, 1] },
-    { delay: 0.1, ...ease.quint!(2).out },
-  );
-
-  animate(
-    "#Rakete_Bein-Rechts",
-    { pathLength: [0, 1] },
-    { delay: 0.15, ...ease.quint!(1).out },
-  );
-
-  animate(
-    "#Rakete_Bein-Links",
-    { pathLength: [0, 1] },
-    { delay: 0.15, ...ease.quint!(1).out },
-  );
-
-  animate(
-    "#Rakete_Fenster",
-    { pathLength: [0, 1] },
-    { delay: 0.2, ...ease.quint!(0.8).out },
-  );
-
-  animate(
-    "#Rakete",
-    { y: [500, 0], x: [-500, 0] },
-    {
-      ...ease.quint!(3).out,
-    },
-  );
-
-  animate(
-    "#Rauchstrahl",
-    { y: [500, 0], x: [-500, 0] },
-    {
-      ...ease.quint!(3).out,
-    },
-  );
-
-  animate("#text-one", { opacity: [0, 1] }, { delay: 1.4 });
-
-  animate(
-    "#text-vspace",
-    { opacity: [0, 1], y: [100, 0] },
-    { delay: 1.2, ...ease.quint!(0.8).out },
-  );
-
-  animate(
-    ".tagline",
-    { opacity: [0, 1], y: [100, 0] },
-    { delay: stagger(0.3, { startDelay: 1.5 }), ...ease.quint!(0.8).out },
+    { amount: 0.8 },
   );
 </script>
