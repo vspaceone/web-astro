@@ -87,16 +87,14 @@ import Heading from "@/components/Heading/Heading.astro";
             },
           );
 
-          animate(
-            (progress) => {
+          animate(0, 1, {
+            onUpdate: (progress) => {
               viewer.setPitch(progress * 10, false);
               viewer.setYaw(160 + ((progress * 270) % 360), false);
               viewer.setHfov(50 + progress * 50, false);
             },
-            {
-              ...ease.quint!(4).inOut,
-            },
-          );
+            ...ease.quart!(7).out,
+          });
         });
       };
 
