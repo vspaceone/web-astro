@@ -1,19 +1,25 @@
+@reference "./global.css";
+
 h1 {
-    @apply !mb-4 !mt-8;
+  @apply mb-4! mt-8!;
 }
 
-h1, h2, h3,h4,h5 {
-    @apply !mb-4 !mt-6;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply mb-4! mt-6!;
 }
 
 p {
-   @apply !mb-2;
+  @apply mb-2!;
 }
 
 ul {
-    @apply !ml-4;
+  @apply ml-4!;
 }
 
 li {
-    @apply !ml-4;
+  @apply ml-4!;
 }
