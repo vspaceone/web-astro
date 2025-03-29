@@ -6,6 +6,7 @@ import "@fontsource/ubuntu";
 import "@fontsource/inter";
 import "keen-slider/keen-slider.min.css";
 import AnimateHeadings from "@/components/AnimateHeadings.astro";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -33,9 +34,10 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>vspace.one - {title}</title>
     <AnimateHeadings />
+    <ClientRouter />
   </head>
   <body>
-    <Header />
+    <Header transition:name="header" transition:persist />
     <slot />
     <Footer />
   </body>
